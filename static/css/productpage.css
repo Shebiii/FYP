@@ -1,3 +1,5 @@
+
+{% load static %}
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 /* Utilities */
@@ -42,6 +44,7 @@ body {
 .navbar {
   position: fixed;
   top: 0;
+  margin-top: -10px;
   z-index: 1001;
 }
 #navigation {
@@ -79,41 +82,6 @@ body {
 
 #navigation ul li a.active {
   border-bottom: 2px solid dodgerblue;
-}
-
-#header-products {
-  padding-top: 80px;
-  margin-top: -25px;
-  height: 750px;
-  position: relative;
-  z-index: 10;
-  background-color: #f3f3f3;
-}
-
-#header-products::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: url("/img/Cart.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
-  z-index: 8;
-  clip-path: polygon(0 0, 100% 0, 100% 59%, 50% 100%, 0 59%);
-}
-
-#header-products::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  background-attachment: fixed;
-  clip-path: polygon(0 0, 100% 0, 100% 59%, 50% 100%, 0 59%);
-  z-index: 9;
 }
 
 #header-products .container {
