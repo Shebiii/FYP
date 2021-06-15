@@ -1,12 +1,11 @@
 {% load static %}
-{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final year Project | Admin Panel</title>
+    <title>Final year Project | Server Provider Panel</title>
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -14,8 +13,8 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="{% static './css/Responsive css Service.css'%}" />
-    <link rel="stylesheet" href="{% static './css/styleService.css'%}" />
+    <link rel="stylesheet" href="{%  static './css/Responsive css Service.css' %}" />
+    <link rel="stylesheet" href="{%  static './css/styleService.css' %}" />
   </head>
   <body>
     <main>
@@ -41,22 +40,17 @@
                 <a href="addproduct.html" class="nav-link">Products</a>
               </li>
               <li class="nav-item">
-                <a href="adduser.html" class="nav-link">Users</a>
-              </li>
-              <li class="nav-item">
-                <a href="addserviceproviders.html" class="nav-link"
-                  >Service Providers</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="addservice.html" class="nav-link">Service</a>
+                <a href="addcity.html" class="nav-link">Cities</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link">Welcome Mohsin</a></li>
+              <li class="nav-item"><a class="nav-link">{% if server_name %}
+      HELLO {{server_name}}
+      {% endif %}</a></li>
               <li class="nav-item">
-                <a href="login_admin.html" class="nav-link">
-                  <i class="far fa-user"></i> Login
+
+                <a href="{% url 'server_logout' %}" class="nav-link">
+                  <i class="far fa-user"></i> Logout
                 </a>
               </li>
             </ul>
@@ -64,19 +58,15 @@
         </nav>
       </div>
       <div id="middle-navigation" class="navbar-dark">
-        <h1 class="d-inline">
-          <i class="fas fa-cog"></i> Add Service Providers
-        </h1>
-        <p class="lead mb-0 d-inline ml-2">
-          Manage Your Site Service Providers
-        </p>
+        <h1 class="d-inline"><i class="fas fa-cog"></i> Service provides </h1>
+        <p class="lead mb-0 d-inline ml-2">Manage Your Clients</p>
       </div>
     </main>
     <section id="admin-content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-2 fixed-left bg-dark">
-           <nav id="aside-navigation" class="navbar navbar-dark">
+            <nav id="aside-navigation" class="navbar navbar-dark">
               <a href="index.html" class="navbar-brand">
                 <i class="fas fa-hand-holding-water mine-size text-primary"></i>
                 Water Services
@@ -85,7 +75,7 @@
               <ul class="navbar-nav pt-3">
                 <small class="text-light">Pages</small>
                 <li class="list-item">
-                  <a href="index.html" class="active nav-link">
+                  <a href="server_page" class="active nav-link">
                     <i class="fas fa-tachometer-alt"></i>
                     Dashboard
                   </a>
@@ -108,13 +98,12 @@
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuLink"
                     >
-                      <a class="dropdown-item" href="editproduct.html"
+                      <a class="dropdown-item"  href="server_product"
                         >Add Product
                       </a>
-                       <a class="dropdown-item" href="{%   url 'admin_order'%}"
+                      <a class="dropdown-item" href="server_product"
                         >Show Product</a
                       >
-
                     </div>
                   </div>
                 </li>
@@ -130,50 +119,18 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="far fa-user"></i> Users
+                      <i class="far fa-user"></i> Cities
                     </a>
 
                     <div
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuLink"
                     >
-                      <a class="dropdown-item" href="{% url 'admin_user' %}"
-                        >Show User</a
-                      >
+                      <a class="dropdown-item" href="server_page">City Modification </a>
 
                     </div>
                   </div>
                 </li>
-
-                <li class="list-item dropdown">
-                  <div class="dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      id="dropdownMenuLink"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="fas fa-poll-h"></i> Service Providers
-                    </a>
-
-                    <div
-                      class="dropdown-menu"
-                      aria-labelledby="dropdownMenuLink"
-                    >
-                      <a class="dropdown-item" href="{% url 'server_reg'%}"
-                        >Add Service Providers
-                      </a>
-                      <a class="dropdown-item" href="{% url 'admin_showServiceProvider' %}"
-                        >Show Service Providers</a
-                      >
-
-                    </div>
-                  </div>
-                </li>
-
               </ul>
             </nav>
           </div>
